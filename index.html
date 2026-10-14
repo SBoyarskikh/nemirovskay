@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Дарья Немировская — юрист по частному капиталу и преемственности</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#22333B;
+    --slate:#5B6E74;
+    --gold:#C9A45C;
+    --coral:#E8987E;
+    --cream:#EEE6D3;
+    --muted:rgba(238,230,211,.62);
+    --line:rgba(201,164,92,.35);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    font-family:"PT Sans",system-ui,sans-serif;
+    color:var(--cream);
+    background:var(--bg);
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none}
+
+  /* ========== HERO ========== */
+  .hero{
+    position:relative;
+    min-height:100vh;
+    display:flex;flex-direction:column;
+    background:
+      radial-gradient(1200px 700px at 78% 40%, rgba(91,110,116,.55), transparent 65%),
+      linear-gradient(135deg,#1f2f36 0%,#2f434b 45%,#56696f 100%);
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background-image:linear-gradient(to right, rgba(238,230,211,.035) 1px, transparent 1px);
+    background-size:calc(100%/12) 100%;
+  }
+  .wrap{width:100%;max-width:1320px;margin:0 auto;padding:0 48px;position:relative;z-index:2}
+
+  /* ---------- header ---------- */
+  header{padding:28px 0}
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:32px}
+  .brand-name{font-family:"PT Serif",serif;font-weight:700;font-size:19px;letter-spacing:.01em}
+  .brand-sub{font-size:12px;color:var(--muted);letter-spacing:.04em;margin-top:2px}
+  .menu{display:flex;gap:26px;list-style:none}
+  .menu a{font-size:14px;color:var(--muted);transition:color .2s;position:relative;padding:4px 0}
+  .menu a:hover{color:var(--cream)}
+  .menu a::after{content:"";position:absolute;left:0;bottom:-2px;height:1px;width:0;background:var(--gold);transition:width .25s}
+  .menu a:hover::after{width:100%}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    font-family:"PT Sans",sans-serif;font-weight:700;font-size:14px;letter-spacing:.06em;text-transform:uppercase;
+    padding:16px 28px;border-radius:2px;cursor:pointer;transition:all .25s;border:1px solid transparent;white-space:nowrap
+  }
+  .btn-coral{background:var(--coral);color:var(--bg)}
+  .btn-coral:hover{background:#efa98f;transform:translateY(-1px);box-shadow:0 10px 30px -10px rgba(232,152,126,.6)}
+  .btn-ghost{border-color:rgba(238,230,211,.3);color:var(--cream)}
+  .btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+  .btn-sm{padding:11px 20px;font-size:12px}
+  .burger{display:none;background:none;border:0;color:var(--cream);cursor:pointer}
+
+  /* ---------- main ---------- */
+  .hero-main{flex:1;display:flex;align-items:center;padding:56px 0 64px}
+  .grid{display:grid;grid-template-columns:1.08fr .92fr;gap:64px;align-items:center}
+
+  .eyebrow{
+    font-weight:700;font-size:13px;letter-spacing:.32em;text-transform:uppercase;color:var(--coral);
+    display:flex;align-items:center;gap:14px;margin-bottom:32px
+  }
+  .eyebrow::after{content:"";width:56px;height:1px;background:var(--line)}
+
+  h1{
+    font-family:"PT Serif",serif;font-weight:700;
+    font-size:clamp(36px,4.1vw,60px);line-height:1.1;letter-spacing:-.005em;
+    color:var(--cream);margin-bottom:30px
+  }
+  h1 em{font-style:italic;font-weight:400;color:var(--gold)}
+  .lead{font-size:18px;line-height:1.65;color:var(--muted);max-width:560px;margin-bottom:42px}
+  .lead strong{color:var(--cream);font-family:"PT Serif",serif;font-weight:700}
+  .actions{display:flex;gap:16px;flex-wrap:wrap}
+  .btn-ghost .arr{transition:transform .25s}
+  .btn-ghost:hover .arr{transform:translateX(4px)}
+
+  /* ---------- photo ---------- */
+  .visual{position:relative;justify-self:end;width:100%;max-width:500px}
+  .frame{
+    position:relative;aspect-ratio:4/5;
+    border-radius:260px 260px 4px 4px;overflow:hidden;
+    background:#d9d9d9;
+    box-shadow:0 40px 80px -30px rgba(0,0,0,.55);
+  }
+  .frame img{width:100%;height:100%;object-fit:cover;object-position:center 18%;display:block;filter:grayscale(1) contrast(1.04)}
+  .frame::after{
+    content:"";position:absolute;inset:0;
+    background:
+      linear-gradient(to top, rgba(34,51,59,.85) 0%, rgba(34,51,59,0) 38%),
+      linear-gradient(135deg, rgba(34,51,59,.10), rgba(201,164,92,.08));
+  }
+  .frame-line{
+    position:absolute;inset:-18px 18px 18px -18px;
+    border:1px solid var(--line);border-radius:270px 270px 4px 4px;pointer-events:none
+  }
+  .photo-caption{
+    position:absolute;right:28px;bottom:24px;z-index:3;text-align:right
+  }
+  .photo-caption .n{font-family:"PT Serif",serif;font-style:italic;font-size:20px;color:var(--coral)}
+  .photo-caption .r{font-size:13px;letter-spacing:.04em;color:var(--muted);margin-top:4px}
+
+  /* ---------- succession scheme card ---------- */
+  .scheme{
+    position:absolute;left:-150px;bottom:-40px;z-index:4;width:270px;
+    background:rgba(34,51,59,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+    border:1px solid rgba(201,164,92,.28);border-radius:4px;padding:22px 22px 18px;
+    box-shadow:0 30px 60px -25px rgba(0,0,0,.6);
+  }
+  .scheme-title{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+  .step{display:flex;gap:12px;position:relative;padding-bottom:13px}
+  .step:not(:last-child)::before{content:"";position:absolute;left:5px;top:16px;bottom:0;width:1px;background:var(--line)}
+  .dot{flex:none;width:11px;height:11px;margin-top:4px;border:1px solid var(--gold);transform:rotate(45deg)}
+  .step.key .dot{background:var(--coral);border-color:var(--coral)}
+  .step-t{font-size:14px;line-height:1.3;color:var(--cream)}
+  .step-s{font-size:11.5px;color:var(--muted);margin-top:2px}
+  .step-row{display:flex;gap:6px;flex-wrap:wrap}
+  .chip{font-size:12px;padding:3px 8px;border:1px solid rgba(238,230,211,.18);border-radius:2px;color:var(--cream)}
+
+  /* ---------- stats ---------- */
+  .stats{border-top:1px solid var(--line);padding:30px 0 38px}
+  .stats-grid{display:grid;grid-template-columns:repeat(3,1fr)}
+  .stat{padding:0 36px;border-left:1px solid var(--line)}
+  .stat:first-child{padding-left:0;border-left:0}
+  .stat-num{font-family:"PT Serif",serif;font-weight:700;font-size:34px;color:var(--gold);line-height:1;margin-bottom:10px}
+  .stat p{font-size:14px;line-height:1.5;color:var(--muted);max-width:340px}
+
+  /* ---------- appear ---------- */
+  .fade{opacity:0;transform:translateY(18px);animation:in .9s cubic-bezier(.2,.7,.2,1) forwards}
+  .d1{animation-delay:.1s}.d2{animation-delay:.25s}.d3{animation-delay:.4s}.d4{animation-delay:.55s}.d5{animation-delay:.75s}
+  @keyframes in{to{opacity:1;transform:none}}
+
+  /* ---------- responsive ---------- */
+  @media (max-width:1180px){
+    .menu{display:none}.burger{display:block}
+    .scheme{left:-90px}
+  }
+  @media (max-width:960px){
+    .wrap{padding:0 24px}
+    .grid{grid-template-columns:1fr;gap:56px}
+    .visual{justify-self:center;max-width:420px}
+    .scheme{position:relative;left:auto;bottom:auto;width:100%;margin-top:28px}
+    .stats-grid{grid-template-columns:1fr;gap:22px}
+    .stat{padding:0;border-left:0;border-top:1px solid var(--line);padding-top:22px}
+    .stat:first-child{border-top:0;padding-top:0}
+    .nav .btn-sm{display:none}
+  }
+  @media (max-width:520px){
+    .lead{font-size:16px}
+    .actions .btn{width:100%;justify-content:center}
+    .eyebrow{letter-spacing:.2em;font-size:11px}
+  }
+</style>
+</head>
+<body>
+
+<section class="hero" id="top">
+
+  <!-- HEADER -->
+  <header>
+    <div class="wrap nav">
+      <a href="#top" class="brand">
+        <div class="brand-name">Дарья Немировская</div>
+        <div class="brand-sub">юрист, партнёр White&nbsp;Stone</div>
+      </a>
+
+      <ul class="menu">
+        <li><a href="#about">Обо&nbsp;мне</a></li>
+        <li><a href="#law">Право</a></li>
+        <li><a href="#method">Методология</a></li>
+        <li><a href="#cases">Кейсы</a></li>
+        <li><a href="#services">Услуги</a></li>
+        <li><a href="#dynasty">Династия</a></li>
+        <li><a href="#pubs">Публикации</a></li>
+        <li><a href="#book">Книга</a></li>
+        <li><a href="#library">Библиотека</a></li>
+      </ul>
+
+      <a href="#contact" class="btn btn-ghost btn-sm">Обсудить задачу</a>
+      <button class="burger" aria-label="Меню">
+        <svg width="28" height="28" viewBox="0 0 28 28" stroke="currentColor" stroke-width="1.5"><path d="M4 9h20M4 14h20M10 19h14"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <div class="hero-main">
+    <div class="wrap grid">
+
+      <div>
+        <div class="eyebrow fade d1">Частный капитал и&nbsp;преемственность</div>
+        <h1 class="fade d2">Передать капитал и&nbsp;управление так, чтобы семья и&nbsp;бизнес <em>пережили смену поколений</em></h1>
+        <p class="lead fade d3">
+          <strong>Дарья Немировская</strong>&nbsp;— юрист по&nbsp;частному капиталу. Семейное, наследственное и&nbsp;корпоративное право, международные структуры, проекты преемственности от&nbsp;диагностики до&nbsp;внедрения.
+        </p>
+        <div class="actions fade d4">
+          <a href="#contact" class="btn btn-coral">Обсудить задачу</a>
+          <a href="#cases" class="btn btn-ghost">Смотреть кейсы <span class="arr">→</span></a>
+        </div>
+      </div>
+
+      <div class="visual fade d3">
+        <div class="frame-line"></div>
+        <div class="frame">
+          <!-- Положите фото эксперта рядом с файлом под именем daria.jpg -->
+          <img src="daria.jpg" alt="Дарья Немировская, юрист по частному капиталу">
+          <div class="photo-caption">
+            <div class="n">Дарья Немировская</div>
+            <div class="r">юрист, партнёр White&nbsp;Stone</div>
+          </div>
+        </div>
+
+        <!-- Схема преемственности -->
+        <div class="scheme fade d5">
+          <div class="scheme-title">Структура преемственности</div>
+          <div class="step key">
+            <span class="dot"></span>
+            <div><div class="step-t">Основатель</div><div class="step-s">первое поколение</div></div>
+          </div>
+          <div class="step">
+            <span class="dot"></span>
+            <div class="step-t">Личный фонд, трасты</div>
+          </div>
+          <div class="step">
+            <span class="dot"></span>
+            <div class="step-t">Холдинг</div>
+          </div>
+          <div class="step">
+            <span class="dot"></span>
+            <div class="step-row"><span class="chip">УК&nbsp;холдинга</span><span class="chip">ЗПИФ</span></div>
+          </div>
+          <div class="step key">
+            <span class="dot"></span>
+            <div><div class="step-t">Семейный совет и&nbsp;управление</div><div class="step-s">второе и&nbsp;третье поколения</div></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats fade d5">
+    <div class="wrap stats-grid">
+      <div class="stat">
+        <div class="stat-num">14&nbsp;лет</div>
+        <p>консультирует российских и&nbsp;международных клиентов по&nbsp;сделкам M&amp;A, частным инвестициям и&nbsp;финансовым операциям</p>
+      </div>
+      <div class="stat">
+        <div class="stat-num">10+&nbsp;лет</div>
+        <p>сопровождает частных клиентов: от&nbsp;брачных договоров до&nbsp;адресной передачи активов и&nbsp;защиты капитала</p>
+      </div>
+      <div class="stat">
+        <div class="stat-num">Рейтинг 2025</div>
+        <p>Рейтинг юристов «Российской газеты», направление «Частный капитал и&nbsp;инвестиции»</p>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+</body>
+</html>
